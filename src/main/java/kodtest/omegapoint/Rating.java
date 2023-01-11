@@ -1,8 +1,8 @@
 package kodtest.omegapoint;
 
 public class Rating {
-    double rate;
-    int count;
+    private double rate;
+    private int count;
 
     public Rating() {
         this.rate = 2.5;
