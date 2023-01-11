@@ -28,6 +28,15 @@ public class Product {
         this.rating = null;
     }
 
+    public Product(String title, double price, String description, String category, String image) {
+        this.title = title;
+        this.price = price;
+        this.description = description;
+        this.category = category;
+        this.image = image;
+        this.rating = new Rating();
+    }
+
     public String getTitle() {
         return title;
     }
