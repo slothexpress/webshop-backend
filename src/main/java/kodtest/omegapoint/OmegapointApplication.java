@@ -3,7 +3,9 @@ package kodtest.omegapoint;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -23,7 +25,17 @@ public class OmegapointApplication {
 
 		int responseCode = connection.getResponseCode();
 
-		System.out.println("OK..." + responseCode);
+		if(responseCode == 200) {
+			BufferedReader data = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+
+			String line;
+			StringBuffer content = new StringBuffer();
+
+			while((line = data.readLine()) != null) {
+				content.append(line);
+			}
+			System.out.println(content);
+		}
 
 	}
 
