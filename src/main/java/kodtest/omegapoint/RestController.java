@@ -33,16 +33,16 @@ public class RestController {
     @PostMapping("/delete/{id}")
     public String deleteProductById(@PathVariable int id) {
         String response = service.deleteProductById(id);
-        return "response";
+        return response;
     }
 
     @PostMapping("/add/{title}/{price}/{description}/{category}/{image}")
-    public String deleteProductById(@PathVariable String title, @PathVariable int price,
-                                    @PathVariable String decscription, @PathVariable String category,
+    public String addProduct(@PathVariable String title, @PathVariable int price,
+                                    @PathVariable String description, @PathVariable String category,
                                     @PathVariable String image) {
-        Product product = new Product(title, price, decscription, category, image);
+        Product product = new Product(title, price, description, category, image);
         String response = service.addProduct(product);
-        return "response";
+        return response;
     }
 
 }
