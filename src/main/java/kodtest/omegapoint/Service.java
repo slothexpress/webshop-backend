@@ -82,4 +82,8 @@ public class Service {
 
         mockDatabase = products;
     }
+
+    public Product getProductById(int id) {
+        return mockDatabase.get(id);
+    }
 }
