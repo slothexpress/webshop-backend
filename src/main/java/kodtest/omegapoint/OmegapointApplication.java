@@ -26,7 +26,7 @@ public class OmegapointApplication {
 		SpringApplication.run(OmegapointApplication.class, args);
 
 		Service service = new Service();
-		service.fetchAPI();
+		String json = service.fetchAPI();
 
 	}
 

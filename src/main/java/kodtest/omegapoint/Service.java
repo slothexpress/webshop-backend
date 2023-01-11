@@ -11,7 +11,8 @@ public class Service {
     public Service() {
     }
 
-    public void fetchAPI() {
+    public String fetchAPI() {
+        String result = "null";
         String line;
         StringBuffer content = new StringBuffer();
 
@@ -35,5 +36,7 @@ public class Service {
         } catch (Exception e) {
             System.out.println("Fetch threw exception: " + e);
         }
+        result = content.toString();
+        return result;
     }
 }
