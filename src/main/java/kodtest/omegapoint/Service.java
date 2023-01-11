@@ -91,4 +91,14 @@ public class Service {
             return new Product(id);
         }
     }
+
+    public String deleteProductById(int id) {
+        if(mockDatabase.get(id) != null) {
+            mockDatabase.remove(id);
+            return "Deleted product with ID " + id;
+        } else {
+            // If id does not exist, return empty product with error message
+            return "Product with ID " + id + " does not exist";
+        }
+    }
 }
