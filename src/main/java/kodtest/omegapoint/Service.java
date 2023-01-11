@@ -101,4 +101,18 @@ public class Service {
             return "Product with ID " + id + " does not exist";
         }
     }
+
+    public String addProduct(Product product) {
+        int counter = 0;
+        int id;
+
+        // Fix potential infinite loop
+        do {
+            counter++;
+            id = mockDatabase.size() + counter;
+        } while (mockDatabase.containsKey(id));
+
+        mockDatabase.put(id, product);
+        return "Product added!";
+    }
 }

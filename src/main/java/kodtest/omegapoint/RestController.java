@@ -36,4 +36,13 @@ public class RestController {
         return "response";
     }
 
+    @PostMapping("/add/{title}/{price}/{description}/{category}/{image}")
+    public String deleteProductById(@PathVariable String title, @PathVariable int price,
+                                    @PathVariable String decscription, @PathVariable String category,
+                                    @PathVariable String image) {
+        Product product = new Product(title, price, decscription, category, image);
+        String response = service.addProduct(product);
+        return "response";
+    }
+
 }
