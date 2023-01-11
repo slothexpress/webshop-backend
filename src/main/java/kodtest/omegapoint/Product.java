@@ -1,31 +1,22 @@
 package kodtest.omegapoint;
 
-public class Product {
-    int id;
-    String title;
-    int price;
-    String description;
-    String category;
-    String image;
-    Rating rating;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-    public Product(int id, String title, int price, String description, String category, String image, Rating rating) {
-        this.id = id; // TODO Add validation
+public class Product {
+    private String title;
+    private double price;
+    private String description;
+    private String category;
+    private String image;
+    private Rating rating;
+
+    public Product(String title, double price, String description, String category, String image, Rating rating) {
         this.title = title;
         this.price = price;
         this.description = description;
         this.category = category;
         this.image = image;
         this.rating = rating;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    // TODO Add validation
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTitle() {
@@ -36,7 +27,7 @@ public class Product {
         this.title = title;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
