@@ -23,6 +23,7 @@ public class RestController {
         return allProducts;
     }
 
+    // Get product by id
     @GetMapping("/{id}")
     public Product findProductById(@PathVariable int id) {
         Product product = service.getProductById(id);

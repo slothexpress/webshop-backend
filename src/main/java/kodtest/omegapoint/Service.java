@@ -84,6 +84,11 @@ public class Service {
     }
 
     public Product getProductById(int id) {
-        return mockDatabase.get(id);
+        if(mockDatabase.get(id) != null) {
+            return mockDatabase.get(id);
+        } else {
+            // If id does not exist, return empty product with error message
+            return new Product(id);
+        }
     }
 }

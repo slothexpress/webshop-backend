@@ -19,6 +19,15 @@ public class Product {
         this.rating = rating;
     }
 
+    public Product(int id) {
+        this.title = "Product with ID " + id + " does not exist";
+        this.price = 0;
+        this.description = "";
+        this.category = "";
+        this.image = "";
+        this.rating = null;
+    }
+
     public String getTitle() {
         return title;
     }
