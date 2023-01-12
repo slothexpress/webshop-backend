@@ -24,7 +24,6 @@ public class OmegapointApplication {
 
 	public static void main(String[] args) throws IOException {
 		SpringApplication.run(OmegapointApplication.class, args);
-		RestController controller = new RestController();
 	}
 
 }

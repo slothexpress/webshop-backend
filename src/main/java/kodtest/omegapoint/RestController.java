@@ -1,6 +1,7 @@
 package kodtest.omegapoint;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,7 @@ public class RestController {
 
     Service service;
 
+    @Autowired
     public RestController(Service service) throws JsonProcessingException {
         this.service = service;
     }
