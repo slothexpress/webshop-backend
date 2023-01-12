@@ -12,8 +12,8 @@ public class RestController {
 
     Service service;
 
-    public RestController() throws JsonProcessingException {
-        service = new Service();
+    public RestController(Service service) throws JsonProcessingException {
+        this.service = service;
     }
 
     // Root endpoint returns all products
