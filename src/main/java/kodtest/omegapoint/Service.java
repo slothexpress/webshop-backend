@@ -3,6 +3,7 @@ package kodtest.omegapoint;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -16,6 +17,7 @@ public class Service {
 
     private HashMap<Integer, Product> mockDatabase = new HashMap<>();
 
+    @Autowired
     public Service() throws JsonProcessingException {
         fetchAPI();
     }
