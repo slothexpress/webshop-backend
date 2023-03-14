@@ -1,4 +1,4 @@
-package kodtest.omegapoint;
+package kodtest.backend;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -32,7 +32,7 @@ public class Service {
         StringBuffer content = new StringBuffer();
 
         try {
-            URL url = new URL("https://kodtest.azurewebsites.net/api/products?code=MWZOJunmBNEPDGxldyIKSplsqq/8Sv4c6KvgZ1vyh4Z9wCaw6rqJIA==");
+            URL url = new URL("https://fakestoreapi.com/products");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.connect();

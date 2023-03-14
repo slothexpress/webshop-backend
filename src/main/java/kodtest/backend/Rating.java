@@ -1,4 +1,4 @@
-package kodtest.omegapoint;
+package kodtest.backend;
 
 public class Rating {
     private double rate;

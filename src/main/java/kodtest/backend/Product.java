@@ -1,6 +1,4 @@
-package kodtest.omegapoint;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
+package kodtest.backend;
 
 public class Product {
     private String title;

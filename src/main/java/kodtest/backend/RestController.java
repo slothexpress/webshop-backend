@@ -1,4 +1,4 @@
-package kodtest.omegapoint;
+package kodtest.backend;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
