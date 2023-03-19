@@ -38,11 +38,10 @@ public class AppController {
         return response;
     }
 
-    @PostMapping("/add/{title}/{price}/{description}/{category}/{image}")
-    public String addProduct(@PathVariable String title, @PathVariable int price,
-                             @PathVariable String description, @PathVariable String category,
-                             @PathVariable String image) {
-        Product product = new Product(title, price, description, category, image);
+    @PostMapping("/add")
+    public String addProduct(@RequestBody Product product) {
+        System.out.println("PRODUCT " + product);
+
         String response = service.addProduct(product);
         return response;
     }

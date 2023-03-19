@@ -1,5 +1,8 @@
 package org.example;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Product {
 
     private String title;
@@ -8,8 +11,18 @@ public class Product {
     private String category;
     private String image;
 
+    // no-args constructor to deserialize JSON objects
+    public Product() {
+
+    }
+
     // Add new product
-    public Product(String title, double price, String description, String category, String image) {
+    @JsonCreator
+    public Product(@JsonProperty("title") String title,
+                   @JsonProperty("price") double price,
+                   @JsonProperty("description") String description,
+                   @JsonProperty("category") String category,
+                   @JsonProperty("image") String image) {
         this.title = title;
         this.price = price;
         this.description = description;

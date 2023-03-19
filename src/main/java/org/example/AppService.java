@@ -62,7 +62,6 @@ public class AppService {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode rootNode = mapper.readTree(json);
 
-
         List<JsonNode> jsonObjects = rootNode.findParents("rating");
         HashMap<Integer, Product> products = new HashMap();
 
@@ -101,8 +100,8 @@ public class AppService {
     }
 
     public String addProduct(Product product) {
-        int counter = 0;
         int id;
+        int counter = 0;
 
         // Fix potential infinite loop
         do {
