@@ -2,39 +2,28 @@ package org.example;
 
 public class Product {
 
-
     private String title;
     private double price;
     private String description;
     private String category;
     private String image;
-    private Rating rating;
 
-    public Product(String title, double price, String description, String category, String image, Rating rating) {
-        this.title = title;
-        this.price = price;
-        this.description = description;
-        this.category = category;
-        this.image = image;
-        this.rating = rating;
-    }
-
-    public Product(int id) {
-        this.title = "Product with ID " + id + " does not exist";
-        this.price = 0;
-        this.description = "";
-        this.category = "";
-        this.image = "";
-        this.rating = null;
-    }
-
+    // Add new product
     public Product(String title, double price, String description, String category, String image) {
         this.title = title;
         this.price = price;
         this.description = description;
         this.category = category;
         this.image = image;
-        this.rating = null;
+    }
+
+    // Constructor for non-existing product id
+    public Product(int id) {
+        this.title = "PRODUCT ID:";
+        this.price = id;
+        this.description = "DOES";
+        this.category = "NOT";
+        this.image = "EXIST";
     }
 
     public String getTitle() {
@@ -75,14 +64,6 @@ public class Product {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public Rating getRating() {
-        return rating;
-    }
-
-    public void setRating(Rating rating) {
-        this.rating = rating;
     }
 
 }

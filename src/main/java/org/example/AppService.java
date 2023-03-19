@@ -74,12 +74,7 @@ public class AppService {
             String category = object.get("category").toString();
             String image = object.get("image").toString();
 
-            JsonNode ratingObject = object.get("rating");
-            double rate = Double.parseDouble(ratingObject.get("rate").toString());
-            int count = Integer.parseInt(ratingObject.get("count").toString());
-            Rating rating = new Rating(rate, count);
-
-            Product product = new Product(title, price, description, category, image, rating);
+            Product product = new Product(title, price, description, category, image);
             products.put(id, product);
         }
 
