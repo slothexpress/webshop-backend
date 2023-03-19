@@ -34,7 +34,7 @@ public class Product {
         this.description = description;
         this.category = category;
         this.image = image;
-        this.rating = new Rating();
+        this.rating = null;
     }
 
     public String getTitle() {
