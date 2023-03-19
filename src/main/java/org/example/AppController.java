@@ -1,25 +1,25 @@
-package kodtest.backend;
+package org.example;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 
-@org.springframework.web.bind.annotation.RestController
-public class RestController {
 
-    Service service;
+@org.springframework.web.bind.annotation.RestController
+@CrossOrigin
+public class AppController {
+
+    AppService service;
 
     @Autowired
-    public RestController(Service service) throws JsonProcessingException {
+    public AppController(AppService service) {
         this.service = service;
     }
 
     // Root endpoint returns all products
-    @GetMapping("/")
+    @GetMapping("/api")
     public HashMap<Integer, Product> getAllProducts() {
         HashMap<Integer, Product> allProducts = service.getMockDatabase();
         return allProducts;
@@ -40,11 +40,12 @@ public class RestController {
 
     @PostMapping("/add/{title}/{price}/{description}/{category}/{image}")
     public String addProduct(@PathVariable String title, @PathVariable int price,
-                                    @PathVariable String description, @PathVariable String category,
-                                    @PathVariable String image) {
+                             @PathVariable String description, @PathVariable String category,
+                             @PathVariable String image) {
         Product product = new Product(title, price, description, category, image);
         String response = service.addProduct(product);
         return response;
     }
+
 
 }

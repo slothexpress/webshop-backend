@@ -1,6 +1,8 @@
-package kodtest.backend;
+package org.example;
 
 public class Rating {
+
+
     private double rate;
     private int count;
 
@@ -29,4 +31,5 @@ public class Rating {
     public void setCount(int count) {
         this.count = count;
     }
+
 }

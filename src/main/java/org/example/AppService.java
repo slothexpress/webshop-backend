@@ -1,9 +1,10 @@
-package kodtest.backend;
+package org.example;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -12,13 +13,13 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 
-@org.springframework.stereotype.Service
-public class Service {
+@Service
+public class AppService {
 
     private HashMap<Integer, Product> mockDatabase = new HashMap<>();
 
     @Autowired
-    public Service() throws JsonProcessingException {
+    public AppService() throws JsonProcessingException {
         fetchAPI();
     }
 
@@ -117,4 +118,7 @@ public class Service {
         mockDatabase.put(id, product);
         return "Product added!";
     }
+
+
+
 }

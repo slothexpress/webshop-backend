@@ -1,6 +1,8 @@
-package kodtest.backend;
+package org.example;
 
 public class Product {
+
+
     private String title;
     private double price;
     private String description;
@@ -82,4 +84,5 @@ public class Product {
     public void setRating(Rating rating) {
         this.rating = rating;
     }
+
 }
