@@ -19,7 +19,7 @@ public class AppController {
     }
 
     // Root endpoint returns all products
-    @GetMapping("/api")
+    @GetMapping("/")
     public HashMap<Integer, Product> getAllProducts() {
         HashMap<Integer, Product> allProducts = service.getMockDatabase();
         return allProducts;
