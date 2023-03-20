@@ -21,7 +21,7 @@ public class AppController {
     // ENDPOINT FOR TESTING
     @GetMapping("/test/{input}")
     public String test(@PathVariable String input) {
-        return "TJOHO " + input;
+        return "TJOHOOOOOOOOOOOOO " + input;
     }
 
     // Root endpoint returns all products
