@@ -18,6 +18,12 @@ public class AppController {
         this.service = service;
     }
 
+    // ENDPOINT FOR TESTING
+    @GetMapping("/test/{input}")
+    public String test(@PathVariable String input) {
+        return "TJOHO " + input;
+    }
+
     // Root endpoint returns all products
     @GetMapping("/")
     public HashMap<Integer, Product> getAllProducts() {
