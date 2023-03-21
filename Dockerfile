@@ -1,8 +1,8 @@
 FROM amazoncorretto:17
 
-EXPOSE 8080
+EXPOSE 9090
 
 COPY target/*.jar /usr/app/
 WORKDIR /usr/app
 
-ENTRYPOINT ["java", "-jar", "java-backend-7.0-jar-with-dependencies.jar"]
+ENTRYPOINT ["java", "-jar", "java-backend-8.0-jar-with-dependencies.jar"]
