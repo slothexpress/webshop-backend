@@ -35,6 +35,7 @@ jobs:
 
   publish:
     needs: build
+    runs-on: ubuntu-latest
     steps:
       # Docker
       - name: Set up QEMU
