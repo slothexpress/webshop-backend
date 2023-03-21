@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk17:jre-17.0.1_12-alpine
+FROM amazoncorretto:17
 
 EXPOSE 8080
 
