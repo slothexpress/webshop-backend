@@ -53,6 +53,8 @@ jobs:
       - name: Build and push image to Docker
         working-directory: ./
         uses: docker/build-push-action@v4
-        with:
-          push: true
-          tags: slothexpress/java-maven:1.0
+  with:
+    context: ./
+    file: ./Dockerfile
+    push: true
+    tags: slothexpress/java-maven:latest
