@@ -2,15 +2,18 @@ package org.example;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 
 
-@org.springframework.web.bind.annotation.RestController
+@RestController
 @CrossOrigin
 public class AppController {
 
+    @Autowired
     AppService service;
 
     @Autowired
@@ -18,17 +21,17 @@ public class AppController {
         this.service = service;
     }
 
-    // ENDPOINT FOR TESTING
+    // DUMMY ENDPOINT FOR TEST
     @GetMapping("/test/{input}")
-    public String test(@PathVariable String input) {
-        return "TJOHOOOOOOOOOOOOO " + input;
+    public ResponseEntity<String> dummyEndpoint(@PathVariable String input) {
+        return new ResponseEntity<>("HALLO " + input, HttpStatus.OK);
     }
 
     // Root endpoint returns all products
-    @GetMapping("/")
-    public HashMap<Integer, Product> getAllProducts() {
-        HashMap<Integer, Product> allProducts = service.getMockDatabase();
-        return allProducts;
+    @GetMapping("/api")
+    public ResponseEntity<HashMap<Integer, Product>> getAllProducts() {
+        HashMap<Integer, Product> allProducts = service.getAllProducts();
+        return new ResponseEntity<>(allProducts, HttpStatus.OK);
     }
 
     // Get product by id

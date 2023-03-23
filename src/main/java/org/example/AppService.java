@@ -16,14 +16,16 @@ import java.util.List;
 @Service
 public class AppService {
 
+    //@Autowired (if real repository from DB)
     private HashMap<Integer, Product> mockDatabase = new HashMap<>();
 
     @Autowired
     public AppService() throws JsonProcessingException {
+        System.out.println("CREATING SERVICE");
         fetchAPI();
     }
 
-    public HashMap<Integer, Product> getMockDatabase() {
+    public HashMap<Integer, Product> getAllProducts() {
         return mockDatabase;
     }
 
@@ -54,11 +56,13 @@ public class AppService {
         }
         result = content.toString();
         saveProducts(result);
+
+        System.out.println("FETCHED API DONE ");
+        System.out.println("RESULT: " + result);
         return result;
     }
 
-    public void saveProducts(String json) throws JsonProcessingException {
-
+    private void saveProducts(String json) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode rootNode = mapper.readTree(json);
 
@@ -78,6 +82,7 @@ public class AppService {
         }
 
         mockDatabase = products;
+        System.out.println(" SAVED PRODUCTS " + products);
     }
 
     public Product getProductById(int id) {
