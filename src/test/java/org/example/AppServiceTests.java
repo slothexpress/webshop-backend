@@ -15,6 +15,7 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 
 @SpringBootTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class AppServiceTests {
 
 
@@ -26,33 +27,10 @@ public class AppServiceTests {
     static String expectedProducts;
     static String expectedProduct;
 
-    @BeforeAll
-    public static void setup() {
-        setupProductById();
-        setupAllProducts();
-    }
 
-    private static void setupProductById() {String userDirectory = System.getProperty("user.dir");
-        String filePath = "/src/test/resources/";
-        String fileName = "Product.json";
-        String content = "";
-
-        try {
-            content = new String(Files.readAllBytes(
-                    Paths.get(userDirectory + filePath + fileName)), StandardCharsets.UTF_8);
-        } catch (NoSuchFileException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        expectedProduct = content;
-
-    }
-
-    public static void setupAllProducts() {
+    private static String setupExpectedData(String fileName) {
         String userDirectory = System.getProperty("user.dir");
         String filePath = "/src/test/resources/";
-        String fileName = "AllProducts.json";
         String content = "";
 
         try {
@@ -63,11 +41,16 @@ public class AppServiceTests {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        expectedProducts = content;
+        return content;
     }
 
+    // Currently must be run first
+    // Due to add and delete test changes the data
     @Test
+    @Order(1)
     public void getAllProductsTest() throws JSONException {
+        expectedProducts = setupExpectedData("AllProducts.json");
+
         HashMap<Integer, Product> products = sut.getAllProducts();
         String actualProducts = gson.toJson(products);
 
@@ -76,11 +59,40 @@ public class AppServiceTests {
 
     @Test
     public void getProductByIdTest() throws JSONException {
+        expectedProduct = setupExpectedData("Product.json");
+
         Product product = sut.getProductById(1);
         String actualProduct = gson.toJson(product);
 
         Assert.assertEquals(expectedProduct, actualProduct);
     }
 
+    @Test
+    public void addProductTest() throws JSONException {
+        Product product = new Product();
+        String result = sut.addProduct(product);
+
+        // TODO UPDATE WHEN REAL DATABASE EXISTS
+        Assert.assertEquals("Product added!", result);
+    }
+
+    @Test
+    public void deleteProductById() throws JSONException {
+        int id = 2;
+        String result = sut.deleteProductById(id);
+
+
+        // TODO UPDATE WHEN REAL DATABASE EXISTS
+        Assert.assertEquals("Deleted product with ID " + id, result);
+    }
+
+    @Test
+    public void deleteProductByIdThatDoesNotExist() throws JSONException {
+        int id = 111;
+        String result = sut.deleteProductById(id);
+
+        // TODO UPDATE WHEN REAL DATABASE EXISTS
+        Assert.assertEquals("Product with ID " + id + " does not exist", result);
+    }
 
 }
